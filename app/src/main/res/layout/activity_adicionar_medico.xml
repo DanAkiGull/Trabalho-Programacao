@@ -3,7 +3,123 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".AdicionarMedico">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+            android:layout_width="400dp"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/edNome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/nome"
+                android:inputType="textPersonName"
+                android:maxLength= "50"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/edCrm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/crm"
+                android:inputType="textPersonName"
+                android:maxLength= "20"/>
+
+            <EditText
+                android:id="@+id/edLogradouro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/logradouro"
+                android:inputType="textPersonName"
+                android:maxLength= "100" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/edNumero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/numero"
+                android:inputType="numberSigned"
+                android:maxLength= "8"/>
+
+            <EditText
+                android:id="@+id/edCidade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/cidade"
+                android:inputType="textPersonName"
+                android:maxLength= "30"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/edUF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/uf"
+                android:inputType="textPersonName"
+                android:maxLength= "2"/>
+
+            <EditText
+                android:id="@+id/edCelular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/celular"
+                android:inputType="textPersonName"
+                android:maxLength= "20"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/edFixo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/fixo"
+                android:inputType="textPersonName"
+                android:maxLength= "20"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_addMedico"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="adicionarMedico"
+                android:text="@string/adicionar" />
+        </TableRow>
+
+    </TableLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
