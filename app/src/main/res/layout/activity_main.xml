@@ -28,12 +28,14 @@
                 android:id="@+id/btn_addMedico"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="abreAddMedico"
                 android:text="@string/adicionar" />
 
             <Button
                 android:id="@+id/btn_listMedico"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="abreListarMedico"
                 android:text="@string/listar" />
         </TableRow>
 
@@ -55,6 +57,7 @@
                 android:id="@+id/btn_addPaciente"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="abreAddPaciente"
                 android:text="@string/adicionar" />
 
             <Button
@@ -82,6 +85,7 @@
                 android:id="@+id/btn_addConsulta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="abreAddConsulta"
                 android:text="@string/adicionar" />
 
             <Button

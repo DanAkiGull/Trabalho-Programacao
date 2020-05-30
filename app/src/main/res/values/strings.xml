@@ -5,6 +5,8 @@
     <string name="medico">Médico</string>
     <string name="paciente">Paciente</string>
     <string name="consulta">Consulta</string>
+    <string name="listaMedicos">Lista de Médicos</string>
+    <string name="adiconarMedico">Adicionar Médico</string>
     <string name="nome">Nome</string>
     <string name="crm">Crm</string>
     <string name="logradouro">Logradouro</string>
