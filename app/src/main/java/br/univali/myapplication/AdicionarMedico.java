@@ -48,8 +48,6 @@ public class AdicionarMedico extends AppCompatActivity {
         celular = findViewById(R.id.addCelularMed);
         fixo = findViewById(R.id.addFixoMed);
 
-        db = openOrCreateDatabase("consulta.db", Context.MODE_PRIVATE, null);
-
         ArrayAdapter<String> spUfAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, UF);
         uf.setAdapter(spUfAdapter);
 
@@ -67,7 +65,7 @@ public class AdicionarMedico extends AppCompatActivity {
     }
 
     public void adicionarMedico(View v){
-
+        db = openOrCreateDatabase("consulta.db", Context.MODE_PRIVATE, null);
 
         StringBuilder sql_builder =  new StringBuilder();
         sql_builder.append("INSERT INTO medico (nome, crm, logradouro, numero, cidade, uf, celular, fixo) VALUES ( ");
