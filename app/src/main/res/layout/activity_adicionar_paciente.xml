@@ -6,11 +6,97 @@
     android:layout_height="match_parent"
     tools:context=".AdicionarPaciente">
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Paciente"
-        tools:layout_editor_absoluteX="81dp"
-        tools:layout_editor_absoluteY="144dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/adiconarPaciente" />
+
+        <EditText
+            android:id="@+id/addNomePac"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/nome"
+            android:inputType="textPersonName"
+            android:maxLength="50"/>
+
+        <EditText
+            android:id="@+id/addGrpPac"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/grpSanguineo"
+            android:inputType="number"
+            android:maxLength="1" />
+
+        <EditText
+            android:id="@+id/addLogradouroPac"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/logradouro"
+            android:inputType="textPersonName"
+            android:maxLength="100"/>
+
+        <EditText
+            android:id="@+id/addnNumeroPac"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/numero"
+            android:inputType="number"
+            android:maxLength="8"/>
+
+        <EditText
+            android:id="@+id/addCidadePac"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/cidade"
+            android:inputType="textPersonName"
+            android:maxLength="30"/>
+
+        <EditText
+            android:id="@+id/addUfPac"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/uf"
+            android:inputType="textPersonName"
+            android:maxLength="2"/>
+
+        <EditText
+            android:id="@+id/addCelularPac"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/celular"
+            android:inputType="none|number"
+            android:maxLength="20" />
+
+        <EditText
+            android:id="@+id/addFixoPac"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/fixo"
+            android:inputType="none|number"
+            android:maxLength="20" />
+
+        <Button
+            android:id="@+id/btn_addPaciente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="adicionarPaciente"
+            android:text="@string/adicionar" />
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

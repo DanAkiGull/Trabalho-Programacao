@@ -7,6 +7,7 @@
     <string name="medico">Médico</string>
     <string name="paciente">Paciente</string>
     <string name="consulta">Consulta</string>
+
     <string name="listaMedicos">Lista de Médicos</string>
     <string name="adiconarMedico">Adicionar Médico</string>
     <string name="editarMedico">Editar Médico</string>
@@ -18,4 +19,9 @@
     <string name="uf">UF</string>
     <string name="celular">Celular</string>
     <string name="fixo">Fixo</string>
+
+    <string name="listaPacientes">Lista de Pacientes</string>
+    <string name="adiconarPaciente">Adicionar Paciente</string>
+    <string name="grpSanguineo"> GRP Sanguineo</string>
+
 </resources>

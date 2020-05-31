@@ -52,46 +52,59 @@ public class MainActivity extends AppCompatActivity {
     private void criarBancoDados(){
         db = openOrCreateDatabase("consulta.db", Context.MODE_PRIVATE, null);
 
-        StringBuilder sql_banco =  new StringBuilder();
+        StringBuilder sql_1 =  new StringBuilder();
+        StringBuilder sql_2 =  new StringBuilder();
+        StringBuilder sql_3 =  new StringBuilder();
 
-        sql_banco.append("CREATE TABLE IF NOT EXISTS medico (");
-        sql_banco.append("_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, ");
-        sql_banco.append("nome VARCHAR(50), ");
-        sql_banco.append("crm VARCHAR(20), ");
-        sql_banco.append("logradouro VARCHAR(100), ");
-        sql_banco.append("numero MEDIUMINT(8), ");
-        sql_banco.append("cidade VARCHAR(30), ");
-        sql_banco.append("uf VARCHAR(2), ");
-        sql_banco.append("celular VARCHAR(20), ");
-        sql_banco.append("fixo VARCHAR(20)");
-        sql_banco.append(");");
-
-        sql_banco.append("CREATE TABLE IF NOT EXISTS paciente (");
-        sql_banco.append("_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, ");
-        sql_banco.append("nome VARCHAR(50), ");
-        sql_banco.append("grp_sanguineo TINYINT(1), ");
-        sql_banco.append("logradouro VARCHAR(100), ");
-        sql_banco.append("numero MEDIUMINT(8), ");
-        sql_banco.append("cidade VARCHAR(30), ");
-        sql_banco.append("uf VARCHAR(2), ");
-        sql_banco.append("celular VARCHAR(20), ");
-        sql_banco.append("fixo VARCHAR(20)");
-        sql_banco.append(");");
-
-        sql_banco.append("CREATE TABLE IF NOT EXISTS consulta (");
-        sql_banco.append("_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, ");
-        sql_banco.append("paciente_id INTEGER NOT NULL, ");
-        sql_banco.append("medico_id INTEGER NOT NULL, ");
-        sql_banco.append("data_hora_inicio DATETIME, ");
-        sql_banco.append("data_hora_fim DATETIME, ");
-        sql_banco.append("observacao VARCHAR(200), ");
-        sql_banco.append("FOREIGN KEY(paciente_id) REFERENCES paciente(id), ");
-        sql_banco.append("FOREIGN KEY(medico_id) REFERENCES medico(id)");
-        sql_banco.append(");");
+        sql_1.append("CREATE TABLE IF NOT EXISTS medico (");
+        sql_1.append("_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, ");
+        sql_1.append("nome VARCHAR(50), ");
+        sql_1.append("crm VARCHAR(20), ");
+        sql_1.append("logradouro VARCHAR(100), ");
+        sql_1.append("numero MEDIUMINT(8), ");
+        sql_1.append("cidade VARCHAR(30), ");
+        sql_1.append("uf VARCHAR(2), ");
+        sql_1.append("celular VARCHAR(20), ");
+        sql_1.append("fixo VARCHAR(20)");
+        sql_1.append(");");
 
         try {
-            db.execSQL(sql_banco.toString());
-            Toast.makeText(getApplicationContext(),"OK", Toast.LENGTH_LONG).show();
+            db.execSQL(sql_1.toString());
+        }catch(Exception ex){
+            Toast.makeText(getApplicationContext(),"Erro: " + ex.getMessage(), Toast.LENGTH_LONG).show();
+        }
+
+        sql_2.append("CREATE TABLE IF NOT EXISTS paciente (");
+        sql_2.append("_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, ");
+        sql_2.append("nome VARCHAR(50), ");
+        sql_2.append("grp_sanguineo TINYINT(1), ");
+        sql_2.append("logradouro VARCHAR(100), ");
+        sql_2.append("numero MEDIUMINT(8), ");
+        sql_2.append("cidade VARCHAR(30), ");
+        sql_2.append("uf VARCHAR(2), ");
+        sql_2.append("celular VARCHAR(20), ");
+        sql_2.append("fixo VARCHAR(20)");
+        sql_2.append(");");
+
+        try {
+            db.execSQL(sql_2.toString());
+        }catch(Exception ex){
+            Toast.makeText(getApplicationContext(),"Erro: " + ex.getMessage(), Toast.LENGTH_LONG).show();
+        }
+
+        sql_3 .append("CREATE TABLE IF NOT EXISTS consulta (");
+        sql_3 .append("_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, ");
+        sql_3 .append("paciente_id INTEGER NOT NULL, ");
+        sql_3 .append("medico_id INTEGER NOT NULL, ");
+        sql_3 .append("data_hora_inicio DATETIME, ");
+        sql_3 .append("data_hora_fim DATETIME, ");
+        sql_3 .append("observacao VARCHAR(200), ");
+        sql_3 .append("FOREIGN KEY(paciente_id) REFERENCES paciente(id), ");
+        sql_3 .append("FOREIGN KEY(medico_id) REFERENCES medico(id)");
+        sql_3 .append(");");
+
+        try {
+            db.execSQL(sql_3.toString());
         }catch(Exception ex){
             Toast.makeText(getApplicationContext(),"Erro: " + ex.getMessage(), Toast.LENGTH_LONG).show();
         }

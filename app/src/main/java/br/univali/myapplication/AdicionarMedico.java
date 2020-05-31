@@ -61,6 +61,9 @@ public class AdicionarMedico extends AppCompatActivity {
             Toast.makeText(this,"Erro: " + ex.getMessage(), Toast.LENGTH_LONG).show();
         }
 
+        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(i);
+
         db.close();
     }
 }
