@@ -91,8 +91,6 @@ public class AdicionarConsulta extends AppCompatActivity {
         sql_builder.append("'" + addFimCon.getText().toString() + "' , ");
         sql_builder.append("'"+ addObsCon.getText().toString() +"');");
 
-       // sql_builder.append("'"+ addInicioCon +"' , ");
-        //sql_builder.append("'"+ addFimCon +"' , ");
 
         try {
             db.execSQL(sql_builder.toString());
@@ -101,8 +99,8 @@ public class AdicionarConsulta extends AppCompatActivity {
             Toast.makeText(this,"Erro: " + ex.getMessage(), Toast.LENGTH_LONG).show();
         }
 
-        //Intent i = new Intent(getApplicationContext(), MainActivity.class);
-        //startActivity(i);
+        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(i);
 
         db.close();
     }

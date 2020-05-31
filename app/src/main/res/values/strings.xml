@@ -29,5 +29,7 @@
     <string name="editarConsultas">Editar Consulta</string>
     <string name="listaConsultas">Lista de Consultas</string>
     <string name="observacao">Observação</string>
+    <string name="dataInicial">Data e hora Inicial</string>
+    <string name="dataFinal">Data e hora Final</string>
 
 </resources>

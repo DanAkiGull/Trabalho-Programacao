@@ -5,5 +5,54 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".EditarConsulta">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/editarConsultas" />
+
+        <Spinner
+            android:id="@+id/editPacienteCon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/editMedicoCon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/editInicioCon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="datetime" />
+
+        <EditText
+            android:id="@+id/editFimCon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="datetime" />
+
+        <EditText
+            android:id="@+id/editObsCon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/observacao"
+            android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/btn_editCon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/editar" />
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

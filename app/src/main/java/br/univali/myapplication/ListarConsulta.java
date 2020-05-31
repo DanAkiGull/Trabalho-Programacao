@@ -33,13 +33,13 @@ public class ListarConsulta extends AppCompatActivity {
 
                 View v = lvConsultas.getChildAt(position);
                 TextView tvListIdConsulta = v.findViewById(R.id.tvListIdConsulta);
-                TextView tvListIdPaciente = v.findViewById(R.id.tvListIdPaciente);
-                TextView tvListIdMedico = v.findViewById(R.id.tvListIdMedico);
+                TextView tvListIdPaciente = v.findViewById(R.id.tvListPacienteConsulta);
+                TextView tvListIdMedico = v.findViewById(R.id.tvListMedicoConsulta);
                 TextView tvListInicioConsulta = v.findViewById(R.id.tvListInicioConsulta);
                 TextView tvListFimConsulta = v.findViewById(R.id.tvListFimConsulta);
                 TextView tvListObservacaoConsulta = v.findViewById(R.id.tvListObservacaoConsulta);
 
-                Intent i = new Intent(getApplicationContext(), EditarPaciente.class);
+                Intent i = new Intent(getApplicationContext(), EditarConsulta.class);
 
                 i.putExtra("_id",tvListIdConsulta.getText().toString());
                 i.putExtra("paciente_id",tvListIdPaciente.getText().toString());
