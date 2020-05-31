@@ -32,17 +32,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="date|time" />
+            android:inputType="datetime" />
 
         <EditText
             android:id="@+id/addFimCon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="date|time" />
+            android:inputType="datetime" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/addObsCon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"

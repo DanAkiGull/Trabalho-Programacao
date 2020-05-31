@@ -47,7 +47,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void abreListarConsulta(View v){
-
+        Intent i = new Intent(MainActivity.this, ListarConsulta.class);
+        startActivity(i);
     }
 
     private void criarBancoDados(){

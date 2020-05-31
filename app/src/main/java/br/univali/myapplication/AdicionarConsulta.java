@@ -31,7 +31,7 @@ public class AdicionarConsulta extends AppCompatActivity {
 
     TextView addInicioCon;
     TextView addFimCon;
-    TextView addObservacaoCon;
+    TextView addObsCon;
 
     SQLiteDatabase db;
 
@@ -44,7 +44,7 @@ public class AdicionarConsulta extends AppCompatActivity {
         spMedico = findViewById(R.id.addMedicoCon);
         addInicioCon = findViewById(R.id.addInicioCon);
         addFimCon = findViewById(R.id.addFimCon);
-        addObservacaoCon = findViewById(R.id.add);
+        addObsCon = findViewById(R.id.addObsCon);
 
         acharPacientes();
         acharMedico();
@@ -87,9 +87,12 @@ public class AdicionarConsulta extends AppCompatActivity {
         sql_builder.append("INSERT INTO consulta (paciente_id, medico_id, data_hora_inicio, data_hora_fim, observacao) VALUES ( ");
         sql_builder.append( pacienteId.get(indicePaciente) + ", ");
         sql_builder.append( medicoId.get(indiceMedico) + ", ");
-        sql_builder.append("'"+ addInicioCon +"' , ");
-        sql_builder.append("'"+ addFimCon +"' , ");
-        sql_builder.append("'"+ addObservacaoCon +"');");
+        sql_builder.append("'"+addInicioCon.getText().toString()+"' , ");
+        sql_builder.append("'" + addFimCon.getText().toString() + "' , ");
+        sql_builder.append("'"+ addObsCon.getText().toString() +"');");
+
+       // sql_builder.append("'"+ addInicioCon +"' , ");
+        //sql_builder.append("'"+ addFimCon +"' , ");
 
         try {
             db.execSQL(sql_builder.toString());
