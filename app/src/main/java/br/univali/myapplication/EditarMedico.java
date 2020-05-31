@@ -68,6 +68,15 @@ public class EditarMedico extends AppCompatActivity {
         logradouro.setText(valores.getStringExtra("logradouro"));
         numero.setText(valores.getStringExtra("numero"));
         cidade.setText(valores.getStringExtra("cidade"));
+        String selecao = valores.getStringExtra("uf");
+        int aux = 0;
+        for (String c : UF ){
+            if(c.equals(selecao)){
+                break;
+            }
+            aux++;
+        }
+        uf.setSelection(aux);
         celular.setText(valores.getStringExtra("celular"));
         fixo.setText(valores.getStringExtra("fixo"));
 
