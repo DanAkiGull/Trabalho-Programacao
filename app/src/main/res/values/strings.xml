@@ -9,7 +9,7 @@
     <string name="consulta">Consulta</string>
 
     <string name="listaMedicos">Lista de Médicos</string>
-    <string name="adiconarMedico">Adicionar Médico</string>
+    <string name="adicionarMedico">Adicionar Médico</string>
     <string name="editarMedico">Editar Médico</string>
     <string name="nome">Nome</string>
     <string name="crm">Crm</string>
@@ -21,8 +21,12 @@
     <string name="fixo">Fixo</string>
 
     <string name="listaPacientes">Lista de Pacientes</string>
-    <string name="adiconarPaciente">Adicionar Paciente</string>
+    <string name="adicionarPaciente">Adicionar Paciente</string>
     <string name="editarPaciente">Editar Paciente</string>
     <string name="grpSanguineo"> GRP Sanguineo</string>
+
+    <string name="adicionarConsulta">Adicionar Consulta</string>
+    <string name="listaConsultas">Lista de Consultas</string>
+    <string name="observacao">Observação</string>
 
 </resources>
