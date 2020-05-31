@@ -32,9 +32,11 @@ public class ListarMedico extends AppCompatActivity {
         Cursor dados = db.rawQuery(sql_builder.toString(),null);
 
         String[] from = {"_id", "nome", "crm", "logradouro", "numero", "cidade", "uf", "celular", "fixo"};
-        //int[] to = {R.id.tvListId}
+        int[] to = {R.id.tvListIdMedico, R.id.tvListNomeMedico, R.id.tvListCrmMedico, R.id.tvListLogradouroMedico,
+                    R.id.tvListNumeroMedico, R.id.tvListCidadeMedico, R.id.tvListUfMedico, R.id.tvListCelularMedico,
+                    R.id.tvListFixoMedico };
 
-        SimpleCursorAdapter scAdapter = new SimpleCursorAdapter(getApplicationContext(), R.layout.dados_medicos, dadps, from, to, 0);
+       SimpleCursorAdapter scAdapter = new SimpleCursorAdapter(getApplicationContext(), R.layout.dados_medicos, dados, from, to, 0);
 
         lvMedicos.setAdapter(scAdapter);
 
