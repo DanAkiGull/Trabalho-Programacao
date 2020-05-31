@@ -22,6 +22,7 @@
 
     <string name="listaPacientes">Lista de Pacientes</string>
     <string name="adiconarPaciente">Adicionar Paciente</string>
+    <string name="editarPaciente">Editar Paciente</string>
     <string name="grpSanguineo"> GRP Sanguineo</string>
 
 </resources>

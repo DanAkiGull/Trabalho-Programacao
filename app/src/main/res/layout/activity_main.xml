@@ -54,7 +54,7 @@
                 android:text="@string/paciente" />
 
             <Button
-                android:id="@+id/btn_addPaciente"
+                android:id="@+id/btn_editPaciente"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="abreAddPaciente"
@@ -64,6 +64,7 @@
                 android:id="@+id/btn_listPaciente"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="abreListarPaciente"
                 android:text="@string/listar" />
         </TableRow>
 

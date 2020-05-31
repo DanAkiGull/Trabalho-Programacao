@@ -4,23 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdicionarPaciente">
+    tools:context=".EditarPaciente">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/textView10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/adiconarPaciente" />
-
+            android:text="@string/editarPaciente" />
         <EditText
-            android:id="@+id/addNomePac"
+            android:id="@+id/editNomePac"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -29,7 +26,7 @@
             android:maxLength="50"/>
 
         <EditText
-            android:id="@+id/addGrpPac"
+            android:id="@+id/editGrpPac"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -38,7 +35,7 @@
             android:maxLength="1" />
 
         <EditText
-            android:id="@+id/addLogradouroPac"
+            android:id="@+id/editLogradouroPac"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -47,7 +44,7 @@
             android:maxLength="100"/>
 
         <EditText
-            android:id="@+id/addNumeroPac"
+            android:id="@+id/editNumeroPac"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -56,7 +53,7 @@
             android:maxLength="8"/>
 
         <EditText
-            android:id="@+id/addCidadePac"
+            android:id="@+id/editCidadePac"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -65,7 +62,7 @@
             android:maxLength="30"/>
 
         <EditText
-            android:id="@+id/addUfPac"
+            android:id="@+id/editUfPac"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -74,7 +71,7 @@
             android:maxLength="2"/>
 
         <EditText
-            android:id="@+id/addCelularPac"
+            android:id="@+id/editCelularPac"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -83,7 +80,7 @@
             android:maxLength="20" />
 
         <EditText
-            android:id="@+id/addFixoPac"
+            android:id="@+id/editFixoPac"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -91,12 +88,24 @@
             android:inputType="none|number"
             android:maxLength="20" />
 
-        <Button
-            android:id="@+id/btn_editPaciente"
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="adicionarPaciente"
-            android:text="@string/adicionar" />
+            android:layout_height="match_parent" >
+
+            <Button
+                android:id="@+id/btn_editPaciente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="editarPaciente"
+                android:text="@string/editar" />
+
+            <Button
+                android:id="@+id/btn_excluirPaciente"
+                android:layout_width="116dp"
+                android:layout_height="wrap_content"
+                android:onClick="excluirPaciente"
+                android:text="@string/excluir" />
+        </TableRow>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

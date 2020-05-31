@@ -31,7 +31,7 @@ public class AdicionarPaciente extends AppCompatActivity {
         nome = findViewById(R.id.addNomePac);
         grp_sanguineo = findViewById(R.id.addGrpPac);
         logradouro = findViewById(R.id.addLogradouroPac);
-        numero = findViewById(R.id.addnNumeroPac);
+        numero = findViewById(R.id.addNumeroPac);
         cidade = findViewById(R.id.addCidadePac);
         uf = findViewById(R.id.addUfPac);
         celular = findViewById(R.id.addCelularPac);

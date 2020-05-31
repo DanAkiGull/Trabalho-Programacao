@@ -42,7 +42,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void abreListarPaciente(View v){
-
+        Intent i = new Intent(MainActivity.this, ListarPaciente.class);
+        startActivity(i);
     }
 
     public void abreListarConsulta(View v){
