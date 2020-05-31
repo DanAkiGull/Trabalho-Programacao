@@ -29,14 +29,14 @@ public class AdicionarMedico extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adicionar_medico);
 
-        nome = findViewById(R.id.edNome);
-        crm = findViewById(R.id.edCrm);
-        logradouro = findViewById(R.id.edLogradouro);
-        numero = findViewById(R.id.edNumero);
-        cidade = findViewById(R.id.edCidade);
-        uf = findViewById(R.id.edUF);
-        celular = findViewById(R.id.edCelular);
-        fixo = findViewById(R.id.edFixo);
+        nome = findViewById(R.id.addNomeMed);
+        crm = findViewById(R.id.addCrmMed);
+        logradouro = findViewById(R.id.addLogradouroMed);
+        numero = findViewById(R.id.addNumeroMed);
+        cidade = findViewById(R.id.addCidadeMed);
+        uf = findViewById(R.id.addUFMed);
+        celular = findViewById(R.id.addCelularMed);
+        fixo = findViewById(R.id.addFixoMed);
     }
 
     public void adicionarMedico(View v){

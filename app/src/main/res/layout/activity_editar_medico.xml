@@ -6,4 +6,117 @@
     android:layout_height="match_parent"
     tools:context=".EditarMedico">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/editarMedico" />
+
+        <EditText
+            android:id="@+id/editNomeMed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/nome"
+            android:inputType="textPersonName"
+            android:maxLength="50" />
+
+        <EditText
+            android:id="@+id/editCrmMed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/crm"
+            android:inputType="textPersonName"
+            android:maxLength="20" />
+
+        <EditText
+            android:id="@+id/editLogradouroMed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/logradouro"
+            android:inputType="textPersonName"
+            android:maxLength="100" />
+
+        <EditText
+            android:id="@+id/editNumeroMed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/numero"
+            android:inputType="numberSigned"
+            android:maxLength="8" />
+
+        <EditText
+            android:id="@+id/editCidadeMed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/cidade"
+            android:inputType="textPersonName"
+            android:maxLength="30" />
+
+        <EditText
+            android:id="@+id/editUFMed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/uf"
+            android:inputType="textPersonName"
+            android:maxLength="2" />
+
+        <EditText
+            android:id="@+id/editCelularMed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/celular"
+            android:inputType="none|number"
+            android:maxLength="20" />
+
+        <EditText
+            android:id="@+id/editFixoMed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/fixo"
+            android:inputType="none|number"
+            android:maxLength="20" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="13dp" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btn_editMedico"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="editarMedico"
+                android:text="@string/editar" />
+
+            <Space
+                android:layout_width="60dp"
+                android:layout_height="11dp" />
+
+            <Button
+                android:id="@+id/btn_excluirMedico"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="excluirMedico"
+                android:text="@string/excluir" />
+        </TableRow>
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
