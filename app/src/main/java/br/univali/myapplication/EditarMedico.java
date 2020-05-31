@@ -7,7 +7,10 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class EditarMedico extends AppCompatActivity {
@@ -18,10 +21,17 @@ public class EditarMedico extends AppCompatActivity {
     EditText logradouro;
     EditText numero;
     EditText cidade;
-    EditText uf;
+    Spinner uf;
+    String stringUf;
     EditText celular;
     EditText fixo;
     SQLiteDatabase db;
+
+    final String[] UF = new String[] {
+            "RO", "AC", "AM", "RR", "PA", "AP", "TO", "MA", "PI", "CE", "RN",
+            "PB", "PE", "AL", "SE", "BA", "MG", "ES", "RJ", "SP", "PR", "SC",
+            "RS", "MS", "MT", "GO", "DF"
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +47,20 @@ public class EditarMedico extends AppCompatActivity {
         celular = findViewById(R.id.editCelularMed);
         fixo = findViewById(R.id.editFixoMed);
 
+        ArrayAdapter<String> spUfAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, UF);
+        uf.setAdapter(spUfAdapter);
+
+        uf.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                stringUf = UF[i];
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
         Intent valores =  getIntent();
         _id = valores.getStringExtra("_id");
         nome.setText(valores.getStringExtra("nome"));
@@ -44,7 +68,6 @@ public class EditarMedico extends AppCompatActivity {
         logradouro.setText(valores.getStringExtra("logradouro"));
         numero.setText(valores.getStringExtra("numero"));
         cidade.setText(valores.getStringExtra("cidade"));
-        uf.setText(valores.getStringExtra("uf"));
         celular.setText(valores.getStringExtra("celular"));
         fixo.setText(valores.getStringExtra("fixo"));
 
@@ -61,7 +84,7 @@ public class EditarMedico extends AppCompatActivity {
         sql_builder.append("logradouro = '" + logradouro.getText().toString() + "', ");
         sql_builder.append("numero = " + numero.getText().toString() + ", ");
         sql_builder.append("cidade = '" + cidade.getText().toString() + "', ");
-        sql_builder.append("uf = '" + uf.getText().toString() + "', ");
+        sql_builder.append("uf = '" + stringUf + "', ");
         sql_builder.append("celular = '" + celular.getText().toString() + "', ");
         sql_builder.append("fixo = '" + fixo.getText().toString() + "'");
         sql_builder.append("WHERE _id = " + _id + ";");

@@ -62,14 +62,12 @@
             android:inputType="textPersonName"
             android:maxLength="30" />
 
-        <EditText
+        <Spinner
             android:id="@+id/addUFMed"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/uf"
-            android:inputType="textPersonName"
-            android:maxLength="2" />
+            android:hint="@string/uf"/>
+
 
         <EditText
             android:id="@+id/addCelularMed"
