@@ -25,14 +25,10 @@
             android:inputType="textPersonName"
             android:maxLength="50"/>
 
-        <EditText
+        <Spinner
             android:id="@+id/editGrpPac"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/grpSanguineo"
-            android:inputType="number"
-            android:maxLength="1" />
+            android:layout_height="wrap_content" />
 
         <EditText
             android:id="@+id/editLogradouroPac"

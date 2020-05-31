@@ -17,7 +17,8 @@ public class EditarPaciente extends AppCompatActivity {
 
     String _id;
     EditText nome;
-    EditText grp_sanguineo;
+    Spinner grp_sanguineo;
+    int numeroGrp;
     EditText logradouro;
     EditText numero;
     EditText cidade;
@@ -26,6 +27,10 @@ public class EditarPaciente extends AppCompatActivity {
     EditText celular;
     EditText fixo;
     SQLiteDatabase db;
+
+    final String[] GRP = new String[] {
+            "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"
+    };
 
     final String[] UF = new String[] {
             "RO", "AC", "AM", "RR", "PA", "AP", "TO", "MA", "PI", "CE", "RN",
@@ -48,8 +53,23 @@ public class EditarPaciente extends AppCompatActivity {
         celular = findViewById(R.id.editCelularPac);
         fixo = findViewById(R.id.editFixoPac);
 
+        ArrayAdapter<String> spGrpAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, GRP);
+        grp_sanguineo.setAdapter(spGrpAdapter);
+
+        grp_sanguineo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                numeroGrp = i;
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                numeroGrp = 10;
+            }
+        });
+
         ArrayAdapter<String> spUfAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, UF);
         uf.setAdapter(spUfAdapter);
+
 
         uf.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -62,17 +82,22 @@ public class EditarPaciente extends AppCompatActivity {
             }
         });
 
+
+
         Intent valores =  getIntent();
         _id = valores.getStringExtra("_id");
         nome.setText(valores.getStringExtra("nome"));
-        grp_sanguineo.setText(valores.getStringExtra("grp_sanguineo"));
+
+        int selecaoGrp = Integer.parseInt(valores.getStringExtra("grp_sanguineo"));
+        grp_sanguineo.setSelection(selecaoGrp);
+
         logradouro.setText(valores.getStringExtra("logradouro"));
         numero.setText(valores.getStringExtra("numero"));
         cidade.setText(valores.getStringExtra("cidade"));
-        String selecao = valores.getStringExtra("uf");
+        String selecaoUf = valores.getStringExtra("uf");
         int aux = 0;
         for (String c : UF ){
-            if(c.equals(selecao)){
+            if(c.equals(selecaoUf)){
                 break;
             }
             aux++;
@@ -90,7 +115,7 @@ public class EditarPaciente extends AppCompatActivity {
         StringBuilder sql_builder =  new StringBuilder();
         sql_builder.append("UPDATE paciente SET ");
         sql_builder.append("nome = '" + nome.getText().toString() + "', ");
-        sql_builder.append("grp_sanguineo = '"+ grp_sanguineo.getText().toString() + "', ");
+        sql_builder.append("grp_sanguineo = '"+ numeroGrp + "', ");
         sql_builder.append("logradouro = '" + logradouro.getText().toString() + "', ");
         sql_builder.append("numero = " + numero.getText().toString() + ", ");
         sql_builder.append("cidade = '" + cidade.getText().toString() + "', ");

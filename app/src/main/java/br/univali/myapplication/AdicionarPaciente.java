@@ -15,9 +15,9 @@ import android.widget.Toast;
 
 public class AdicionarPaciente extends AppCompatActivity {
 
-
     EditText nome;
-    EditText grp_sanguineo;
+    Spinner grp_sanguineo;
+    int numeroGrp;
     EditText logradouro;
     EditText numero;
     EditText cidade;
@@ -26,6 +26,10 @@ public class AdicionarPaciente extends AppCompatActivity {
     EditText celular;
     EditText fixo;
     SQLiteDatabase db;
+
+    final String[] GRP = new String[] {
+            "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"
+    };
 
     final String[] UF = new String[] {
             "RO", "AC", "AM", "RR", "PA", "AP", "TO", "MA", "PI", "CE", "RN",
@@ -47,6 +51,20 @@ public class AdicionarPaciente extends AppCompatActivity {
         celular = findViewById(R.id.addCelularPac);
         fixo = findViewById(R.id.addFixoPac);
 
+        ArrayAdapter<String> spGrpAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, GRP);
+        grp_sanguineo.setAdapter(spGrpAdapter);
+
+        grp_sanguineo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                numeroGrp = i;
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                numeroGrp = 10;
+            }
+        });
+
         ArrayAdapter<String> spUfAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, UF);
         uf.setAdapter(spUfAdapter);
 
@@ -61,7 +79,6 @@ public class AdicionarPaciente extends AppCompatActivity {
             }
         });
 
-
     }
 
     public void adicionarPaciente(View v){
@@ -71,7 +88,7 @@ public class AdicionarPaciente extends AppCompatActivity {
         StringBuilder sql_builder =  new StringBuilder();
         sql_builder.append("INSERT INTO paciente (nome, grp_sanguineo, logradouro, numero, cidade, uf, celular, fixo) VALUES ( ");
         sql_builder.append("'" + nome.getText().toString() + "', ");
-        sql_builder.append(grp_sanguineo.getText().toString() + ", ");
+        sql_builder.append(numeroGrp + ", ");
         sql_builder.append("'" + logradouro.getText().toString() + "', ");
         sql_builder.append(numero.getText().toString() + ", ");
         sql_builder.append("'" + cidade.getText().toString() + "', ");
