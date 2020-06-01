@@ -15,11 +15,13 @@
             android:id="@+id/textView8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/listaPacientes" />
+            android:text="@string/listaPacientes"
+            android:padding="5dp"/>
 
         <ListView
             android:id="@+id/lvPacientes"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:padding="20dp"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

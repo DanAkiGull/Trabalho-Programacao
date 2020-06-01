@@ -15,88 +15,102 @@
             android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/adicionarMedico" />
+            android:text="@string/adicionarMedico"
+            android:padding="5dp"/>
 
         <EditText
             android:id="@+id/addNomeMed"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/nome"
             android:inputType="textPersonName"
-            android:maxLength="50" />
+            android:maxLength="50"
+            android:padding="5dp"/>
 
         <EditText
             android:id="@+id/addCrmMed"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/crm"
             android:inputType="textPersonName"
-            android:maxLength="20" />
+            android:maxLength="20"
+            android:padding="5dp"/>
 
         <EditText
             android:id="@+id/addLogradouroMed"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/logradouro"
             android:inputType="textPersonName"
-            android:maxLength="100" />
+            android:maxLength="100"
+            android:padding="5dp"/>
 
         <EditText
             android:id="@+id/addNumeroMed"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/numero"
             android:inputType="numberSigned"
-            android:maxLength="8" />
+            android:maxLength="8"
+            android:padding="5dp"/>
 
         <EditText
             android:id="@+id/addCidadeMed"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/cidade"
             android:inputType="textPersonName"
-            android:maxLength="30" />
+            android:maxLength="30"
+            android:padding="5dp"/>
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/uf"
+            android:padding="5dp"/>
 
         <Spinner
             android:id="@+id/addUFMed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/uf"/>
+            android:hint="@string/uf"
+            android:padding="5dp"/>
 
 
         <EditText
             android:id="@+id/addCelularMed"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/celular"
             android:inputType="none|number"
-            android:maxLength="20" />
+            android:maxLength="20"
+            android:padding="5dp"/>
 
         <EditText
             android:id="@+id/addFixoMed"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/fixo"
             android:inputType="none|number"
-            android:maxLength="20" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="13dp" />
+            android:maxLength="20"
+            android:padding="5dp"/>
 
         <Button
             android:id="@+id/btn_addMedico"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="adicionarMedico"
-            android:text="@string/adicionar" />
+            android:text="@string/adicionar"
+            android:padding="5dp"/>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

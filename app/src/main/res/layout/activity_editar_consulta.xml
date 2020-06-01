@@ -14,31 +14,52 @@
             android:id="@+id/textView11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/editarConsultas" />
+            android:text="@string/editarConsultas"
+            android:padding="5dp"/>
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/paciente"
+            android:padding="5dp"/>
 
         <Spinner
             android:id="@+id/editPacienteCon"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:padding="5dp"/>
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/medico"
+            android:padding="5dp"/>
 
         <Spinner
             android:id="@+id/editMedicoCon"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:padding="5dp"/>
 
         <EditText
             android:id="@+id/editInicioCon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="datetime" />
+            android:hint="@string/dataInicial"
+            android:inputType="datetime"
+            android:padding="5dp"/>
 
         <EditText
             android:id="@+id/editFimCon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="datetime" />
+            android:hint="@string/dataFinal"
+            android:inputType="datetime"
+            android:padding="5dp"/>
 
         <EditText
             android:id="@+id/editObsCon"
@@ -46,13 +67,33 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/observacao"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:maxLength="200"
+            android:padding="5dp"/>
 
-        <Button
-            android:id="@+id/btn_editCon"
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/editar" />
+            android:layout_height="match_parent" >
+
+            <Button
+                android:id="@+id/btn_editCon"
+                android:layout_width="157dp"
+                android:layout_height="wrap_content"
+                android:text="@string/editar"
+                android:padding="5dp"/>
+
+            <Space
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:padding="5dp"/>
+
+            <Button
+                android:id="@+id/btn_excluirConsulta"
+                android:layout_width="157dp"
+                android:layout_height="wrap_content"
+                android:text="@string/excluir"
+                android:padding="5dp"/>
+        </TableRow>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

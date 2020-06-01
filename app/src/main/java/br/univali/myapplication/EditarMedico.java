@@ -121,7 +121,7 @@ public class EditarMedico extends AppCompatActivity {
 
         try {
             db.execSQL(sql_builder.toString());
-            Toast.makeText(this,"Editado", Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Excluido", Toast.LENGTH_LONG).show();
         }catch(Exception ex){
             Toast.makeText(this,"Erro: " + ex.getMessage(), Toast.LENGTH_LONG).show();
         }

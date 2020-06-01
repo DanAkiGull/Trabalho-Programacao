@@ -122,7 +122,7 @@ public class EditarConsulta extends AppCompatActivity {
 
         try {
             db.execSQL(sql_builder.toString());
-            Toast.makeText(this,"Adicionado", Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Editado", Toast.LENGTH_LONG).show();
         }catch(Exception ex){
             Toast.makeText(this,"Erro: " + ex.getMessage(), Toast.LENGTH_LONG).show();
         }
@@ -132,6 +132,27 @@ public class EditarConsulta extends AppCompatActivity {
 
         db.close();
     }
+
+    public void excluirConsulta(View v){
+        db = openOrCreateDatabase("consulta.db", Context.MODE_PRIVATE, null);
+
+        StringBuilder sql_builder =  new StringBuilder();
+        sql_builder.append("DELETE FROM consulta ");
+        sql_builder.append("WHERE  _id = " + _id + ";");
+
+        try {
+            db.execSQL(sql_builder.toString());
+            Toast.makeText(this,"Excluido", Toast.LENGTH_LONG).show();
+        }catch(Exception ex){
+            Toast.makeText(this,"Erro: " + ex.getMessage(), Toast.LENGTH_LONG).show();
+        }
+
+        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(i);
+
+        db.close();
+    }
+
 
     public void acharPacientes(){
         db = openOrCreateDatabase("consulta.db", Context.MODE_PRIVATE, null);

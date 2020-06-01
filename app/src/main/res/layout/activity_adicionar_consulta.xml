@@ -15,17 +15,34 @@
             android:id="@+id/textView9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/adicionarConsulta" />
+            android:text="@string/adicionarConsulta"
+            android:padding="5dp"/>
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/paciente"
+            android:padding="5dp"/>
 
         <Spinner
             android:id="@+id/addPacienteCon"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:padding="5dp"/>
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/medico"
+            android:padding="5dp"/>
 
         <Spinner
             android:id="@+id/addMedicoCon"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:padding="5dp"/>
 
         <EditText
             android:id="@+id/addInicioCon"
@@ -33,7 +50,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/dataInicial"
-            android:inputType="datetime" />
+            android:inputType="datetime"
+            android:padding="5dp"/>
 
         <EditText
             android:id="@+id/addFimCon"
@@ -41,7 +59,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/dataFinal"
-            android:inputType="datetime" />
+            android:inputType="datetime"
+            android:padding="5dp"/>
 
         <EditText
             android:id="@+id/addObsCon"
@@ -49,14 +68,17 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/observacao"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:maxLength="200"
+            android:padding="5dp"/>
 
         <Button
             android:id="@+id/btn_addConsulta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="adicionarConsulta"
-            android:text="@string/adicionar" />
+            android:text="@string/adicionar"
+            android:padding="5dp"/>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
