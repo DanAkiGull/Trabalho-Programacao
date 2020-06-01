@@ -61,7 +61,7 @@ public class AdicionarPaciente extends AppCompatActivity {
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                numeroGrp = 10;
+                numeroGrp = -1;
             }
         });
 
@@ -75,38 +75,42 @@ public class AdicionarPaciente extends AppCompatActivity {
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
+                stringUf = "";
             }
         });
 
     }
 
     public void adicionarPaciente(View v){
+        if(nome.getText().toString().equals("") || numeroGrp == -1 || logradouro.getText().toString().equals("") || numero.getText().toString().equals("") ||
+                cidade.getText().toString().equals("") ||  stringUf.equals("") ||  celular.getText().toString().equals("") || fixo.getText().toString().equals("") ){
+            Toast.makeText(this, "Favor preencher todos os campos", Toast.LENGTH_LONG).show();
+        }else {
+            db = openOrCreateDatabase("consulta.db", Context.MODE_PRIVATE, null);
 
-        db = openOrCreateDatabase("consulta.db", Context.MODE_PRIVATE, null);
+            StringBuilder sql_builder = new StringBuilder();
+            sql_builder.append("INSERT INTO paciente (nome, grp_sanguineo, logradouro, numero, cidade, uf, celular, fixo) VALUES ( ");
+            sql_builder.append("'" + nome.getText().toString() + "', ");
+            sql_builder.append(numeroGrp + ", ");
+            sql_builder.append("'" + logradouro.getText().toString() + "', ");
+            sql_builder.append(numero.getText().toString() + ", ");
+            sql_builder.append("'" + cidade.getText().toString() + "', ");
+            sql_builder.append("'" + stringUf + "', ");
+            sql_builder.append("'" + celular.getText().toString() + "', ");
+            sql_builder.append("'" + fixo.getText().toString() + "');");
 
-        StringBuilder sql_builder =  new StringBuilder();
-        sql_builder.append("INSERT INTO paciente (nome, grp_sanguineo, logradouro, numero, cidade, uf, celular, fixo) VALUES ( ");
-        sql_builder.append("'" + nome.getText().toString() + "', ");
-        sql_builder.append(numeroGrp + ", ");
-        sql_builder.append("'" + logradouro.getText().toString() + "', ");
-        sql_builder.append(numero.getText().toString() + ", ");
-        sql_builder.append("'" + cidade.getText().toString() + "', ");
-        sql_builder.append("'" + stringUf + "', ");
-        sql_builder.append("'" + celular.getText().toString() + "', ");
-        sql_builder.append("'" + fixo.getText().toString() + "');");
+            try {
+                db.execSQL(sql_builder.toString());
+                Toast.makeText(this, "Adicionado", Toast.LENGTH_LONG).show();
+            } catch (Exception ex) {
+                Toast.makeText(this, "Erro: " + ex.getMessage(), Toast.LENGTH_LONG).show();
+            }
 
-        try {
-            db.execSQL(sql_builder.toString());
-            Toast.makeText(this,"Adicionado", Toast.LENGTH_LONG).show();
-        }catch(Exception ex){
-            Toast.makeText(this,"Erro: " + ex.getMessage(), Toast.LENGTH_LONG).show();
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
+
+            db.close();
         }
-
-        Intent i = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(i);
-
-        db.close();
     }
 
 }

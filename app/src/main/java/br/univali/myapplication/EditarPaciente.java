@@ -109,32 +109,36 @@ public class EditarPaciente extends AppCompatActivity {
     }
 
     public void editarPaciente(View v){
+        if(nome.getText().toString().equals("") || numeroGrp == -1 || logradouro.getText().toString().equals("") || numero.getText().toString().equals("") ||
+                cidade.getText().toString().equals("") ||  stringUf.equals("") ||  celular.getText().toString().equals("") || fixo.getText().toString().equals("") ){
+            Toast.makeText(this, "Favor preencher todos os campos", Toast.LENGTH_LONG).show();
+        }else {
+            db = openOrCreateDatabase("consulta.db", Context.MODE_PRIVATE, null);
 
-        db = openOrCreateDatabase("consulta.db", Context.MODE_PRIVATE, null);
+            StringBuilder sql_builder = new StringBuilder();
+            sql_builder.append("UPDATE paciente SET ");
+            sql_builder.append("nome = '" + nome.getText().toString() + "', ");
+            sql_builder.append("grp_sanguineo = '" + numeroGrp + "', ");
+            sql_builder.append("logradouro = '" + logradouro.getText().toString() + "', ");
+            sql_builder.append("numero = " + numero.getText().toString() + ", ");
+            sql_builder.append("cidade = '" + cidade.getText().toString() + "', ");
+            sql_builder.append("uf = '" + stringUf + "', ");
+            sql_builder.append("celular = '" + celular.getText().toString() + "', ");
+            sql_builder.append("fixo = '" + fixo.getText().toString() + "'");
+            sql_builder.append("WHERE _id = " + _id + ";");
 
-        StringBuilder sql_builder =  new StringBuilder();
-        sql_builder.append("UPDATE paciente SET ");
-        sql_builder.append("nome = '" + nome.getText().toString() + "', ");
-        sql_builder.append("grp_sanguineo = '"+ numeroGrp + "', ");
-        sql_builder.append("logradouro = '" + logradouro.getText().toString() + "', ");
-        sql_builder.append("numero = " + numero.getText().toString() + ", ");
-        sql_builder.append("cidade = '" + cidade.getText().toString() + "', ");
-        sql_builder.append("uf = '" + stringUf + "', ");
-        sql_builder.append("celular = '" + celular.getText().toString() + "', ");
-        sql_builder.append("fixo = '" + fixo.getText().toString() + "'");
-        sql_builder.append("WHERE _id = " + _id + ";");
+            try {
+                db.execSQL(sql_builder.toString());
+                Toast.makeText(this, "Editado", Toast.LENGTH_LONG).show();
+            } catch (Exception ex) {
+                Toast.makeText(this, "Erro: " + ex.getMessage(), Toast.LENGTH_LONG).show();
+            }
 
-        try {
-            db.execSQL(sql_builder.toString());
-            Toast.makeText(this,"Editado", Toast.LENGTH_LONG).show();
-        }catch(Exception ex){
-            Toast.makeText(this,"Erro: " + ex.getMessage(), Toast.LENGTH_LONG).show();
+            Intent i = new Intent(getApplicationContext(), ListarPaciente.class);
+            startActivity(i);
+
+            db.close();
         }
-
-        Intent i = new Intent(getApplicationContext(), ListarPaciente.class);
-        startActivity(i);
-
-        db.close();
     }
 
     public void excluirPaciente(View v){

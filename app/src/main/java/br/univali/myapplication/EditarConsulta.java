@@ -109,28 +109,33 @@ public class EditarConsulta extends AppCompatActivity {
     }
 
     public void editarConsulta(View v){
-        db = openOrCreateDatabase("consulta.db", Context.MODE_PRIVATE, null);
+        if((Integer.parseInt(pacienteId.get(indicePaciente)) == -1) || (Integer.parseInt(medicoId.get(indiceMedico)) == -1) ||
+                (editInicioCon.getText().toString().equals("")) || (editFimCon.getText().toString().equals("")) || (editObsCon.getText().toString().equals(""))){
+            Toast.makeText(this, "Favor preencher todos os campos", Toast.LENGTH_LONG).show();
+        }else {
+            db = openOrCreateDatabase("consulta.db", Context.MODE_PRIVATE, null);
 
-        StringBuilder sql_builder =  new StringBuilder();
-        sql_builder.append("UPDATE paciente SET ");
-        sql_builder.append( " paciente_id = " + pacienteId.get(indicePaciente) + ", ");
-        sql_builder.append(" medico_id = " + medicoId.get(indiceMedico) + ", ");
-        sql_builder.append("data_hora_inicio = '"+ editInicioCon.getText().toString()+"' , ");
-        sql_builder.append("data_hora_fim = '" + editFimCon.getText().toString() + "' , ");
-        sql_builder.append("observacao = '"+ editObsCon.getText().toString() +"' ");
-        sql_builder.append("WHERE  _id = " + _id + ";");
+            StringBuilder sql_builder = new StringBuilder();
+            sql_builder.append("UPDATE consulta SET ");
+            sql_builder.append(" paciente_id = " + pacienteId.get(indicePaciente) + ", ");
+            sql_builder.append(" medico_id = " + medicoId.get(indiceMedico) + ", ");
+            sql_builder.append("data_hora_inicio = '" + editInicioCon.getText().toString() + "' , ");
+            sql_builder.append("data_hora_fim = '" + editFimCon.getText().toString() + "' , ");
+            sql_builder.append("observacao = '" + editObsCon.getText().toString() + "' ");
+            sql_builder.append("WHERE  _id = " + _id + ";");
 
-        try {
-            db.execSQL(sql_builder.toString());
-            Toast.makeText(this,"Editado", Toast.LENGTH_LONG).show();
-        }catch(Exception ex){
-            Toast.makeText(this,"Erro: " + ex.getMessage(), Toast.LENGTH_LONG).show();
+            try {
+                db.execSQL(sql_builder.toString());
+                Toast.makeText(this, "Editado", Toast.LENGTH_LONG).show();
+            } catch (Exception ex) {
+                Toast.makeText(this, "Erro: " + ex.getMessage(), Toast.LENGTH_LONG).show();
+            }
+
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
+
+            db.close();
         }
-
-        Intent i = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(i);
-
-        db.close();
     }
 
     public void excluirConsulta(View v){

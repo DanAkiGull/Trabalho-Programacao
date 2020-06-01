@@ -58,36 +58,42 @@ public class AdicionarMedico extends AppCompatActivity {
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
+                stringUf = "";
             }
         });
 
     }
 
     public void adicionarMedico(View v){
-        db = openOrCreateDatabase("consulta.db", Context.MODE_PRIVATE, null);
+        if(nome.getText().toString().equals("") || crm.getText().toString().equals("") || logradouro.getText().toString().equals("") ||
+                numero.getText().toString().equals("") || cidade.getText().toString().equals("") || stringUf.equals("") ||
+                celular.getText().toString().equals("") || fixo.getText().toString().equals("")){
+            Toast.makeText(this, "Favor preencher todos os campos", Toast.LENGTH_LONG).show();
+        }else {
+            db = openOrCreateDatabase("consulta.db", Context.MODE_PRIVATE, null);
 
-        StringBuilder sql_builder =  new StringBuilder();
-        sql_builder.append("INSERT INTO medico (nome, crm, logradouro, numero, cidade, uf, celular, fixo) VALUES ( ");
-        sql_builder.append("'" + nome.getText().toString() + "', ");
-        sql_builder.append("'" + crm.getText().toString() + "', ");
-        sql_builder.append("'" + logradouro.getText().toString() + "', ");
-        sql_builder.append(numero.getText().toString() + ", ");
-        sql_builder.append("'" + cidade.getText().toString() + "', ");
-        sql_builder.append("'" + stringUf + "', ");
-        sql_builder.append("'" + celular.getText().toString() + "', ");
-        sql_builder.append("'" + fixo.getText().toString() + "');");
+            StringBuilder sql_builder = new StringBuilder();
+            sql_builder.append("INSERT INTO medico (nome, crm, logradouro, numero, cidade, uf, celular, fixo) VALUES ( ");
+            sql_builder.append("'" + nome.getText().toString() + "', ");
+            sql_builder.append("'" + crm.getText().toString() + "', ");
+            sql_builder.append("'" + logradouro.getText().toString() + "', ");
+            sql_builder.append(numero.getText().toString() + ", ");
+            sql_builder.append("'" + cidade.getText().toString() + "', ");
+            sql_builder.append("'" + stringUf + "', ");
+            sql_builder.append("'" + celular.getText().toString() + "', ");
+            sql_builder.append("'" + fixo.getText().toString() + "');");
 
-        try {
-            db.execSQL(sql_builder.toString());
-            Toast.makeText(this,"Adicionado", Toast.LENGTH_LONG).show();
-        }catch(Exception ex){
-            Toast.makeText(this,"Erro: " + ex.getMessage(), Toast.LENGTH_LONG).show();
+            try {
+                db.execSQL(sql_builder.toString());
+                Toast.makeText(this, "Adicionado", Toast.LENGTH_LONG).show();
+            } catch (Exception ex) {
+                Toast.makeText(this, "Erro: " + ex.getMessage(), Toast.LENGTH_LONG).show();
+            }
+
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
+
+            db.close();
         }
-
-        Intent i = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(i);
-
-        db.close();
     }
 }

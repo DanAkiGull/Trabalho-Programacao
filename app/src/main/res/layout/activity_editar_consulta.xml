@@ -79,8 +79,9 @@
                 android:id="@+id/btn_editCon"
                 android:layout_width="157dp"
                 android:layout_height="wrap_content"
-                android:text="@string/editar"
-                android:padding="5dp"/>
+                android:onClick="editarConsulta"
+                android:padding="5dp"
+                android:text="@string/editar" />
 
             <Space
                 android:layout_width="60dp"
@@ -91,8 +92,9 @@
                 android:id="@+id/btn_excluirConsulta"
                 android:layout_width="157dp"
                 android:layout_height="wrap_content"
-                android:text="@string/excluir"
-                android:padding="5dp"/>
+                android:onClick="excluirConsulta"
+                android:padding="5dp"
+                android:text="@string/excluir" />
         </TableRow>
 
     </LinearLayout>

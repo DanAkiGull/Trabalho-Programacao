@@ -81,28 +81,32 @@ public class AdicionarConsulta extends AppCompatActivity {
     }
 
     public void adicionarConsulta(View v){
-        db = openOrCreateDatabase("consulta.db", Context.MODE_PRIVATE, null);
+        if((Integer.parseInt(pacienteId.get(indicePaciente)) == -1) || (Integer.parseInt(medicoId.get(indiceMedico)) == -1) ||
+                (addInicioCon.getText().toString().equals("")) || (addFimCon.getText().toString().equals("")) || (addObsCon.getText().toString().equals(""))){
+            Toast.makeText(this, "Favor preencher todos os campos", Toast.LENGTH_LONG).show();
+        }else {
+            db = openOrCreateDatabase("consulta.db", Context.MODE_PRIVATE, null);
+            StringBuilder sql_builder = new StringBuilder();
+            sql_builder.append("INSERT INTO consulta (paciente_id, medico_id, data_hora_inicio, data_hora_fim, observacao) VALUES ( ");
+            sql_builder.append(pacienteId.get(indicePaciente) + ", ");
+            sql_builder.append(medicoId.get(indiceMedico) + ", ");
+            sql_builder.append("'" + addInicioCon.getText().toString() + "' , ");
+            sql_builder.append("'" + addFimCon.getText().toString() + "' , ");
+            sql_builder.append("'" + addObsCon.getText().toString() + "');");
 
-        StringBuilder sql_builder =  new StringBuilder();
-        sql_builder.append("INSERT INTO consulta (paciente_id, medico_id, data_hora_inicio, data_hora_fim, observacao) VALUES ( ");
-        sql_builder.append( pacienteId.get(indicePaciente) + ", ");
-        sql_builder.append( medicoId.get(indiceMedico) + ", ");
-        sql_builder.append("'"+addInicioCon.getText().toString()+"' , ");
-        sql_builder.append("'" + addFimCon.getText().toString() + "' , ");
-        sql_builder.append("'"+ addObsCon.getText().toString() +"');");
 
+            try {
+                db.execSQL(sql_builder.toString());
+                Toast.makeText(this, "Adicionado", Toast.LENGTH_LONG).show();
+            } catch (Exception ex) {
+                Toast.makeText(this, "Erro: " + ex.getMessage(), Toast.LENGTH_LONG).show();
+            }
 
-        try {
-            db.execSQL(sql_builder.toString());
-            Toast.makeText(this,"Adicionado", Toast.LENGTH_LONG).show();
-        }catch(Exception ex){
-            Toast.makeText(this,"Erro: " + ex.getMessage(), Toast.LENGTH_LONG).show();
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
+
+            db.close();
         }
-
-        Intent i = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(i);
-
-        db.close();
     }
 
     public void acharPacientes(){
